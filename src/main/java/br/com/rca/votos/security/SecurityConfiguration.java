@@ -26,7 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     http
       .csrf().disable() //FIXME
       .authorizeRequests()
-      .antMatchers("/cidadao/novo").permitAll()
+      .antMatchers("/cidadao").permitAll()
       .anyRequest().authenticated()
       .and().httpBasic();
   }

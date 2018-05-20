@@ -9,6 +9,6 @@ public class VotosContextConfiguration {
 
   @Bean
   public MongoClient mongoClient() {
-    return new MongoClient("localhost",27018);
+    return new MongoClient("localhost",27017);
   }
 }

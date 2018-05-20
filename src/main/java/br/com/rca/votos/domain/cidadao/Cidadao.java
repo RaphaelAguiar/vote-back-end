@@ -1,8 +1,6 @@
 package br.com.rca.votos.domain.cidadao;
 
 import br.com.rca.votos.domain.voto.Voto;
-import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,59 +8,75 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
 
-@ToString
-@EqualsAndHashCode(of="id")
-@RequiredArgsConstructor
 public class Cidadao implements UserDetails {
-  @Id
-  @Getter
-  @Setter
-  private String id;
-  @Getter
-  @Setter
-  @NonNull
-  private String cpf;
-  @Getter
-  @Setter
-  @NonNull
-  private String senha;
-  @Getter
-  @Setter
-  @NonNull
-  private Set<Voto> votos;
+    private String id;
+    private String cpf;
+    private String senha;
 
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    return Collections.emptySet();
-  }
+    public String getId() {
+        return id;
+    }
 
-  @Override
-  public String getPassword() {
-    return senha;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  @Override
-  public String getUsername() {
-    return cpf;
-  }
+    public String getCpf() {
+        return cpf;
+    }
 
-  @Override
-  public boolean isAccountNonExpired() {
-    return true;
-  }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-  @Override
-  public boolean isAccountNonLocked() {
-    return true;
-  }
+    public String getSenha() {
+        return senha;
+    }
 
-  @Override
-  public boolean isCredentialsNonExpired() {
-    return true;
-  }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-  @Override
-  public boolean isEnabled() {
-    return true;
-  }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.emptySet();
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return cpf;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Cidadao{" +
+            "id='" + id + '\'' +
+            ", cpf='" + cpf + '\'' +
+            '}';
+    }
 }

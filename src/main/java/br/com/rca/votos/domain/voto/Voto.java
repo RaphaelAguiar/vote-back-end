@@ -1,20 +1,33 @@
 package br.com.rca.votos.domain.voto;
 
-import br.com.rca.votos.domain.cargo.Cargo;
-import br.com.rca.votos.domain.cidadao.Cidadao;
-import lombok.*;
+//Criptogravar para que apenas o autor do eleicao saiba qual foi o seu eleicao;
 
-@ToString
-@EqualsAndHashCode(of="cargo")
-@RequiredArgsConstructor
 public class Voto {
-  @Getter
-  @Setter
-  @NonNull
-  private Cargo cargo;
+    private String idVotante;
+    private String nomeCargo;
+    private String idVotado;
 
-  @Getter
-  @Setter
-  @NonNull
-  private Cidadao candidato;
+    public String getIdVotante() {
+        return idVotante;
+    }
+
+    public void setIdVotante(String idVotante) {
+        this.idVotante = idVotante;
+    }
+
+    public String getNomeCargo() {
+        return nomeCargo;
+    }
+
+    public void setNomeCargo(String nomeCargo) {
+        this.nomeCargo = nomeCargo;
+    }
+
+    public String getIdVotado() {
+        return idVotado;
+    }
+
+    public void setIdVotado(String idVotado) {
+        this.idVotado = idVotado;
+    }
 }
