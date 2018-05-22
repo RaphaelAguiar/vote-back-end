@@ -18,11 +18,11 @@ public class EleicaoVotar {
     @Autowired
     private VotoRepository votoRepository;
 
-    public void votar(String idCidadao, String idCandidato, String nomeCargo) {
-        cidadaoRepository.findById(idCidadao)
+    public void votar(String cpfVotante, String cpfVotado, String nomeCargo) {
+        cidadaoRepository.findByCpf(cpfVotante)
             .orElseThrow(() -> new IllegalArgumentException("Cidadão inválido!"));
 
-        cidadaoRepository.findById(idCandidato)
+        cidadaoRepository.findByCpf(cpfVotado)
             .orElseThrow(() -> new IllegalArgumentException("Cidadão inválido!"));
 
         cargoRepository.findByNome(nomeCargo)
@@ -30,8 +30,8 @@ public class EleicaoVotar {
 
         Voto voto = new Voto();
         voto.setNomeCargo(nomeCargo);
-        voto.setIdVotado(idCandidato);
-        voto.setIdVotante(idCidadao);
+        voto.setCpfVotado(cpfVotado);
+        voto.setCpfVotante(cpfVotante);
         votoRepository.save(voto);
     }
 }

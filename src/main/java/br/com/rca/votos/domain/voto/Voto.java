@@ -3,16 +3,17 @@ package br.com.rca.votos.domain.voto;
 //Criptogravar para que apenas o autor do eleicao saiba qual foi o seu eleicao;
 
 public class Voto {
-    private String idVotante;
+    private String cpfVotante;
+    private String cpfVotado;
     private String nomeCargo;
-    private String idVotado;
 
-    public String getIdVotante() {
-        return idVotante;
+
+    public String getCpfVotante() {
+        return cpfVotante;
     }
 
-    public void setIdVotante(String idVotante) {
-        this.idVotante = idVotante;
+    public void setCpfVotante(String cpfVotante) {
+        this.cpfVotante = cpfVotante;
     }
 
     public String getNomeCargo() {
@@ -23,11 +24,11 @@ public class Voto {
         this.nomeCargo = nomeCargo;
     }
 
-    public String getIdVotado() {
-        return idVotado;
+    public String getCpfVotado() {
+        return cpfVotado;
     }
 
-    public void setIdVotado(String idVotado) {
-        this.idVotado = idVotado;
+    public void setCpfVotado(String cpfVotado) {
+        this.cpfVotado = cpfVotado;
     }
 }

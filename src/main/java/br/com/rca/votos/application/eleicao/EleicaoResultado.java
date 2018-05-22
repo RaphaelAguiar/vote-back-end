@@ -17,7 +17,7 @@ public class EleicaoResultado {
             .findByNomeCargo(nomeCargo)
             .stream()
             .collect(Collectors.groupingBy(
-                cargo -> cargo.getIdVotado(),
+                cargo -> cargo.getCpfVotado(),
                 Collectors.counting()
             ));
     }

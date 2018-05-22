@@ -9,17 +9,8 @@ import java.util.Collections;
 import java.util.Set;
 
 public class Cidadao implements UserDetails {
-    private String id;
     private String cpf;
     private String senha;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getCpf() {
         return cpf;
@@ -70,13 +61,5 @@ public class Cidadao implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Cidadao{" +
-            "id='" + id + '\'' +
-            ", cpf='" + cpf + '\'' +
-            '}';
     }
 }

@@ -21,7 +21,7 @@ public class EleicaoPostResource {
     @PostMapping("/eleicao")
     public void post(@Valid @RequestBody EleicaoPostDto eleicaoPostDto) {
         eleicaoVotar.votar(
-            logginService.getUser().getId(),
+            logginService.getUser().getCpf(),
             eleicaoPostDto.getIdCandidato(),
             eleicaoPostDto.getCargo()
         );

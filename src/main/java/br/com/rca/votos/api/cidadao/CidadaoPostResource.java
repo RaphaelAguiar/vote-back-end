@@ -15,10 +15,10 @@ public class CidadaoPostResource {
     private CidadaoNovo cidadaoNovo;
 
     @PostMapping("/cidadao")
-    public String novo(@Valid @RequestBody CidadaoPostDto cidadaoPostDto) {
-        return cidadaoNovo.novo(
-            cidadaoPostDto.getCpf(),
-            cidadaoPostDto.getSenha()
-        ).getId();
+    public void novo(@Valid @RequestBody CidadaoPostParam cidadaoPostParam) {
+        cidadaoNovo.novo(
+            cidadaoPostParam.getCpf(),
+            cidadaoPostParam.getPassword()
+        );
     }
 }
