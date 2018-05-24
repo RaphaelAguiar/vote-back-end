@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface VotoRepository extends Repository<Voto,String> {
     Voto save(Voto voto);
-    List<Voto> findByNomeCargo(String nomeCargo);
+    long countByCpfVotadoAndNomeCargo(String cpfVotado, String nomeCargo);
 }

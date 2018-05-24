@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-public class CidadaoPostResource {
+public class CidadaoRegisterPostResource {
 
     @Autowired
     private CidadaoNovo cidadaoNovo;
 
-    @PostMapping("/cidadao")
-    public void novo(@Valid @RequestBody CidadaoPostParam cidadaoPostParam) {
+    @PostMapping("/api/cidadao")
+    public void novo(@Valid @RequestBody CidadaoRegisterPostParam cidadaoRegisterPostParam) {
         cidadaoNovo.novo(
-            cidadaoPostParam.getCpf(),
-            cidadaoPostParam.getPassword()
+            cidadaoRegisterPostParam.getCpf(),
+            cidadaoRegisterPostParam.getPassword()
         );
     }
 }

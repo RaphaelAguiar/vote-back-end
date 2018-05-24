@@ -18,11 +18,11 @@ public class EleicaoPostResource {
     private LogginService logginService;
 
     //TODO criptografar
-    @PostMapping("/eleicao")
+    @PostMapping("/api/eleicao")
     public void post(@Valid @RequestBody EleicaoPostDto eleicaoPostDto) {
         eleicaoVotar.votar(
             logginService.getUser().getCpf(),
-            eleicaoPostDto.getIdCandidato(),
+            eleicaoPostDto.getCpfCandidato(),
             eleicaoPostDto.getCargo()
         );
     }

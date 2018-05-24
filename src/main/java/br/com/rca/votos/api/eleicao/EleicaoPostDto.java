@@ -6,7 +6,7 @@ public class EleicaoPostDto {
     @NotNull
     private String cargo;
     @NotNull
-    private String idCandidato;
+    private String cpfCandidato;
 
     public String getCargo() {
         return cargo;
@@ -16,11 +16,11 @@ public class EleicaoPostDto {
         this.cargo = cargo;
     }
 
-    public String getIdCandidato() {
-        return idCandidato;
+    public String getCpfCandidato() {
+        return cpfCandidato;
     }
 
-    public void setIdCandidato(String idCandidato) {
-        this.idCandidato = idCandidato;
+    public void setCpfCandidato(String cpfCandidato) {
+        this.cpfCandidato = cpfCandidato;
     }
 }

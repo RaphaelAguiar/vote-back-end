@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-
 @Service
 public class CidadaoNovo {
     @Autowired
@@ -25,7 +23,7 @@ public class CidadaoNovo {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         Cidadao cidadao = new Cidadao();
         cidadao.setCpf(cpf);
-        cidadao.setSenha(passwordEncoder.encode(senha));
+        cidadao.setPassword(passwordEncoder.encode(senha));
         return cidadaoRepository.save(cidadao);
     }
 }

@@ -2,15 +2,11 @@ package br.com.rca.votos.api.cidadao;
 
 import javax.validation.constraints.NotNull;
 
-public class CidadaoPostParam {
+public class CidadaoRegisterPostParam {
     @NotNull
     private String cpf;
     @NotNull
     private String password;
-
-    public CidadaoPostParam(){
-
-    }
 
     public String getCpf() {
         return cpf;
