@@ -1,7 +1,9 @@
 package br.com.rca.votos.security;
 
 import br.com.rca.votos.domain.cidadao.Cidadao;
+import br.com.rca.votos.domain.cidadao.CidadaoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.util.Collections;
 
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
+
 
     protected JWTLoginFilter(String url, AuthenticationManager authManager) {
         super(new AntPathRequestMatcher(url));
@@ -38,9 +41,13 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
-                                            FilterChain filterChain, Authentication auth) {
-        JWTTokenService.addAuthentication(response, auth.getName());
+    protected void successfulAuthentication(HttpServletRequest request,
+                                            HttpServletResponse response,
+                                            FilterChain filterChain,
+                                            Authentication auth) {
+        String cpf = auth.getName();
+        JWTTokenService.addAuthentication(response, cpf);
+        response.addHeader("userCpf",cpf);
     }
 
 }

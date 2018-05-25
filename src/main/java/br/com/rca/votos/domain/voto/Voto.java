@@ -2,11 +2,14 @@ package br.com.rca.votos.domain.voto;
 
 //Criptogravar para que apenas o autor do eleicao saiba qual foi o seu eleicao;
 
-public class Voto {
-    private String cpfVotante;
-    private String cpfVotado;
-    private String nomeCargo;
+import org.springframework.data.annotation.Id;
 
+public class Voto {
+    @Id
+    private String id;
+    private String cpfVotante;
+    private String nomeCargo;
+    private String cpfVotado;
 
     public String getCpfVotante() {
         return cpfVotante;
@@ -14,6 +17,7 @@ public class Voto {
 
     public void setCpfVotante(String cpfVotante) {
         this.cpfVotante = cpfVotante;
+        this.atualizarId();
     }
 
     public String getNomeCargo() {
@@ -22,6 +26,7 @@ public class Voto {
 
     public void setNomeCargo(String nomeCargo) {
         this.nomeCargo = nomeCargo;
+        this.atualizarId();
     }
 
     public String getCpfVotado() {
@@ -30,5 +35,13 @@ public class Voto {
 
     public void setCpfVotado(String cpfVotado) {
         this.cpfVotado = cpfVotado;
+    }
+
+    private void atualizarId() {
+        this.id = cpfVotante + nomeCargo;
+    }
+
+    public String getId(){
+        return cpfVotante + nomeCargo;
     }
 }

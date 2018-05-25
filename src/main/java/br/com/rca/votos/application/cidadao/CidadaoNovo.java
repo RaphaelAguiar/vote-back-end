@@ -11,7 +11,7 @@ public class CidadaoNovo {
     @Autowired
     private CidadaoRepository cidadaoRepository;
 
-    public Cidadao novo(String cpf, String senha) {
+    public Cidadao novo(String cpf, String nome, String senha) {
         //TODO verificar CPF Válido
         //TODO verificar senha valida
 
@@ -23,6 +23,7 @@ public class CidadaoNovo {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         Cidadao cidadao = new Cidadao();
         cidadao.setCpf(cpf);
+        cidadao.setNome(nome);
         cidadao.setPassword(passwordEncoder.encode(senha));
         return cidadaoRepository.save(cidadao);
     }

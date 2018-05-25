@@ -11,13 +11,18 @@ import javax.validation.Valid;
 @RestController
 public class CidadaoRegisterPostResource {
 
+    private final CidadaoNovo cidadaoNovo;
+
     @Autowired
-    private CidadaoNovo cidadaoNovo;
+    public CidadaoRegisterPostResource(CidadaoNovo cidadaoNovo) {
+        this.cidadaoNovo = cidadaoNovo;
+    }
 
     @PostMapping("/api/cidadao")
     public void novo(@Valid @RequestBody CidadaoRegisterPostParam cidadaoRegisterPostParam) {
         cidadaoNovo.novo(
             cidadaoRegisterPostParam.getCpf(),
+            cidadaoRegisterPostParam.getNome(),
             cidadaoRegisterPostParam.getPassword()
         );
     }

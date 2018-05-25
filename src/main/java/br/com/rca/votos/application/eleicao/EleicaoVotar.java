@@ -9,14 +9,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EleicaoVotar {
-    @Autowired
-    private CidadaoRepository cidadaoRepository;
+    private final CidadaoRepository cidadaoRepository;
+    private final CargoRepository cargoRepository;
+    private final VotoRepository votoRepository;
 
     @Autowired
-    private CargoRepository cargoRepository;
-
-    @Autowired
-    private VotoRepository votoRepository;
+    public EleicaoVotar(CidadaoRepository cidadaoRepository,
+                        CargoRepository cargoRepository,
+                        VotoRepository votoRepository) {
+        this.cidadaoRepository = cidadaoRepository;
+        this.cargoRepository = cargoRepository;
+        this.votoRepository = votoRepository;
+    }
 
     public void votar(String cpfVotante, String cpfVotado, String nomeCargo) {
         cidadaoRepository.findByCpf(cpfVotante)

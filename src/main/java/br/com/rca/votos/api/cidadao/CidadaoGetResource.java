@@ -16,7 +16,7 @@ public class CidadaoGetResource {
     @Autowired
     private CidadaoRepository cidadaoRepository;
 
-    @GetMapping("/apicidadao/{cpf}")
+    @GetMapping("/api/cidadao/{cpf}")
     public CidadaoGetReturn get(@PathVariable String cpf) {
         Cidadao cidadao = cidadaoRepository.findByCpf(cpf)
             .orElseThrow(() -> new IllegalArgumentException("Cidadão não encontrado!"));
@@ -38,6 +38,7 @@ public class CidadaoGetResource {
     private CidadaoGetReturn cast(Cidadao cidadao) {
         CidadaoGetReturn cidadaoGetReturn = new CidadaoGetReturn();
         cidadaoGetReturn.setCpf(cidadao.getCpf());
+        cidadaoGetReturn.setNome(cidadao.getNome());
         cidadaoGetReturn.setNomeCargoCandidatado(cidadao.getNomeCargoCandidatado());
         return cidadaoGetReturn;
     }
